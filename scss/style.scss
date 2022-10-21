@@ -1,0 +1,46 @@
+@import "./reset";
+@import "./variables";
+@import "./maps";
+@import "./functions";
+
+@mixin flexCenter($justify) {
+    //just css code
+    display: flex;
+    justify-content: $justify;
+    align-items: center;
+}
+body {
+    @include flexCenter(end);
+  background-color: $green;
+  width: $full-width;
+  /* height: $full-height; */
+  color: $dark;
+  
+  .main {
+    width: 80%;
+    //margin: 2em auto;
+    border: 1px solid $dark;
+    border-radius: .3rem;    
+    &-header {
+      font-size: map-get($font-sizes, xxx-large);
+      font-family:font-family(Titillium);
+      transition: color 0.3s ease-in-out;
+      font-weight: titillium-weight("black");
+      &:hover {
+        color: $orange;
+      }
+    }
+    p {
+      color: $white;
+      font-weight: bold;
+      font-size: 1.5rem;
+      font-family: font-family(Rubik);
+      @for $i from 1 through 5{
+        &:nth-child(#{$i+1}){
+            background-color: nth($rainbow,$i);
+        }
+    }
+    
+    }
+  }
+}
